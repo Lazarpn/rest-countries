@@ -1,0 +1,12 @@
+<div class="country">
+  <img [src]="country.imagePath" alt="Flag_of_Serbia" class="country__img" />
+  <div class="country__content">
+    <h3 class="country__heading">{{ country.name }}</h3>
+    <p>
+      <strong>Population:</strong>
+      {{ country.population | number }}
+    </p>
+    <p><strong>Region:</strong> {{ country.region }}</p>
+    <p><strong>Capital:</strong> {{ country.capital }}</p>
+  </div>
+</div>
