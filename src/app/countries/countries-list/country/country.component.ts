@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from '../../country.model';
 
 @Component({
@@ -8,7 +9,15 @@ import { Country } from '../../country.model';
 })
 export class CountryComponent implements OnInit {
   @Input() country: Country;
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log();
+  }
+
+  onLoadDetail() {
+    this.router.navigate([this.country.id, this.country.name], {
+      relativeTo: this.route,
+    });
+  }
 }

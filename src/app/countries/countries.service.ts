@@ -12,13 +12,14 @@ export class CountriesService {
   fetchCountries() {
     return this.http.get<[]>('https://restcountries.com/v3.1/all').pipe(
       map((countries) => {
-        return countries.map((country: any) => {
+        return countries.map((country: any, index: number) => {
           return new Country(
             country.name.official,
             country.population,
             country.region,
             country.capital,
-            country.flags.svg
+            country.flags.svg,
+            index
           );
         });
       })
