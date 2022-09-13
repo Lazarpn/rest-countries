@@ -4,8 +4,11 @@ import { CountriesComponent } from './countries/countries.component';
 import { CountryDetailComponent } from './countries/country-detail/country-detail.component';
 
 const appRoutes: Routes = [
-  { path: '', component: CountriesComponent },
-  { path: ':id/:name', component: CountryDetailComponent },
+  {
+    path: '',
+    component: CountriesComponent,
+    children: [{ path: ':id/:name', component: CountryDetailComponent }],
+  },
 ];
 
 @NgModule({

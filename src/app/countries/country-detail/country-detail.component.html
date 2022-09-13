@@ -4,18 +4,18 @@
   </button>
   <div class="container__content">
     <img
-      src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg"
+      [src]="country.imagePath"
       alt="CountryFlag"
       class="container__content__flag"
     />
     <div class="detail">
-      <h2 class="detail__heading">Republic of Serbia</h2>
+      <h2 class="detail__heading">{{ country.name }}</h2>
       <div class="detail__content">
-        <p><strong>Native Name</strong>: Serbia</p>
-        <p><strong>Population</strong>: Serbia</p>
-        <p><strong>Region</strong>: Serbia</p>
+        <p><strong>Native Name</strong>: {{ country.name }}</p>
+        <p><strong>Population</strong>: {{ country.population }}</p>
+        <p><strong>Region</strong>: {{ country.region }}</p>
         <p><strong>Sub Region</strong>: Serbia</p>
-        <p><strong>Capital</strong>: Serbia</p>
+        <p><strong>Capital</strong>: {{ country.capital }}</p>
         <p><strong>Top Level Domain</strong>: Serbia</p>
         <p><strong>Currencies</strong>: Serbia</p>
         <p><strong>Languages</strong>: Serbia</p>

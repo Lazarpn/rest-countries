@@ -1,8 +1,9 @@
 .container {
-  padding: 50px 50px 100px 50px;
+  padding: 50px 70px 80px 70px;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  justify-content: space-around;
+  // justify-content: space-around;
   background-color: rgb(238, 238, 238);
 
   &__button {
@@ -17,14 +18,15 @@
     align-self: flex-start;
     width: 100px;
     height: 30px;
+    margin-bottom: 60px;
   }
 
   &__content {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-column-gap: 100px;
+    grid-column-gap: 150px;
     &__flag {
-      width: 100%;
+      width: 700px;
     }
   }
 }
@@ -36,9 +38,12 @@
   }
 
   &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 290px);
   }
 
   &__border-countries {
+    margin-top: 50px;
     display: flex;
 
     align-items: center;
@@ -46,13 +51,16 @@
 }
 
 .borders {
+  margin-left: 20px;
   &__button {
     all: unset;
+    cursor: pointer;
     background-color: #fff;
     border: 1px solid black;
     width: 100px;
     height: 25px;
     text-align: center;
     border-radius: 3px;
+    margin-left: 5px;
   }
 }

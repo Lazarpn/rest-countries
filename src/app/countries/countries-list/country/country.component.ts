@@ -9,15 +9,14 @@ import { Country } from '../../country.model';
 })
 export class CountryComponent implements OnInit {
   @Input() country: Country;
+  @Input() index: number;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    console.log();
-  }
+  ngOnInit(): void {}
 
-  onLoadDetail() {
-    this.router.navigate([this.country.id, this.country.name], {
-      relativeTo: this.route,
-    });
-  }
+  // onLoadDetail() {
+  //   this.router.navigate([this.country.id, this.country.name], {
+  //     relativeTo: this.route,
+  //   });
+  // }
 }

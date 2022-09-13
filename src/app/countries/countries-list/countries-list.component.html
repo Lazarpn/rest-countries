@@ -1,6 +1,7 @@
 <div class="container">
   <app-country
-    *ngFor="let countryEl of countries"
+    *ngFor="let countryEl of countries; let i = index"
     [country]="countryEl"
+    [index]="i"
   ></app-country>
 </div>

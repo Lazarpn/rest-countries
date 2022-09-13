@@ -8,7 +8,7 @@
 
   &__button {
     all: unset;
-    // background-color: orange;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,9 +24,6 @@
 
   &__icon {
     width: 30px;
-    height: 30px;
-    fill: aqua;
-    color: red;
 
     &--sun {
     }
