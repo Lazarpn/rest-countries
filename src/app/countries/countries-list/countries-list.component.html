@@ -1,7 +1,25 @@
-<div class="container">
-  <app-country
-    *ngFor="let countryEl of countries; let i = index"
-    [country]="countryEl"
-    [index]="i"
-  ></app-country>
-</div>
+<main class="container">
+  <form class="form">
+    <div class="form__search">
+      <svg class="form__icon">
+        <use xlink:href="/assets/sprite.svg#icon-search"></use>
+      </svg>
+      <input type="search" placeholder="Search for a country..." />
+    </div>
+    <select name="" id="" class="form__select">
+      <option value="Africa">Africa</option>
+      <option value="America">America</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+  </form>
+
+  <div class="list">
+    <app-country
+      *ngFor="let countryEl of countries; let i = index"
+      [country]="countryEl"
+      [index]="i"
+    ></app-country>
+  </div>
+</main>
