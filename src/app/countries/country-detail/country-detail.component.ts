@@ -18,11 +18,23 @@ export class CountryDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.country = this.countriesService.getCountry(params['id']);
+      this.country = this.countriesService.getCountryByIndex(params['id']);
+      // console.log(this.country);
     });
   }
 
   onBackToHome() {
     this.router.navigate(['/']);
+  }
+
+  onBorderClicked(event) {
+    const borderCountryShortName = event.target.innerText;
+    const borderCountry = this.countriesService.getCountryByBorder(
+      borderCountryShortName
+    );
+
+    this.router.navigate([borderCountry.id, borderCountry.name], {
+      relativeTo: this.route.parent,
+    });
   }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Subject } from 'rxjs';
 import { CountriesService } from './countries.service';
 import { Country } from './country.model';
 

@@ -10,10 +10,12 @@ import { CountriesService } from '../countries.service';
 export class CountriesListComponent implements OnInit, DoCheck {
   constructor(private countriesService: CountriesService) {}
   countries: Country[];
+  spinner = true;
 
   ngOnInit(): void {}
 
   ngDoCheck(): void {
     this.countries = this.countriesService.getCountries();
+    this.spinner = this.countriesService.spinner;
   }
 }

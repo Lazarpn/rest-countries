@@ -1,6 +1,6 @@
 <div class="container">
   <button class="container__button" (click)="onBackToHome()">
-    &leftarrow; Back
+    &leftarrow; Home
   </button>
   <div class="container__content">
     <img
@@ -11,21 +11,38 @@
     <div class="detail">
       <h2 class="detail__heading">{{ country.name }}</h2>
       <div class="detail__content">
-        <p><strong>Native Name</strong>: {{ country.name }}</p>
-        <p><strong>Population</strong>: {{ country.population }}</p>
-        <p><strong>Region</strong>: {{ country.region }}</p>
-        <p><strong>Sub Region</strong>: Serbia</p>
-        <p><strong>Capital</strong>: {{ country.capital }}</p>
-        <p><strong>Top Level Domain</strong>:</p>
-        <p><strong>Currencies</strong>:</p>
-        <p><strong>Languages</strong>:</p>
+        <p><strong>Native Name:</strong> {{ country.name }}</p>
+        <p><strong>Population:</strong> {{ country.population | number }}</p>
+        <p><strong>Region:</strong> {{ country.region }}</p>
+        <p><strong>Sub Region:</strong> {{ country.subregion }}</p>
+        <p><strong>Capital:</strong> {{ country.capital }}</p>
+        <p><strong>Currencies:</strong>{{ country.currencies }}</p>
+        <p><strong>Languages:</strong>{{ country.languages }}</p>
       </div>
-      <div class="detail__border-countries">
+      <div class="detail__border-countries" *ngIf="country.borders.length > 0">
         <p><strong>Border Countries:</strong></p>
         <div class="borders">
-          <button class="borders__button">France</button>
-          <button class="borders__button">Germany</button>
-          <button class="borders__button">Netherlands</button>
+          <button
+            class="borders__button"
+            *ngIf="country.borders[0]"
+            (click)="onBorderClicked($event)"
+          >
+            {{ country.borders[0] }}
+          </button>
+          <button
+            class="borders__button"
+            *ngIf="country.borders[1]"
+            (click)="onBorderClicked($event)"
+          >
+            {{ country.borders[1] }}
+          </button>
+          <button
+            class="borders__button"
+            *ngIf="country.borders[2]"
+            (click)="onBorderClicked($event)"
+          >
+            {{ country.borders[2] }}
+          </button>
         </div>
       </div>
     </div>

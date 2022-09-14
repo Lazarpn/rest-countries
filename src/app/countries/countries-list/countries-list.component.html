@@ -16,6 +16,7 @@
   </form>
 
   <div class="list">
+    <p *ngIf="spinner">Countries are loading...</p>
     <app-country
       *ngFor="let countryEl of countries; let i = index"
       [country]="countryEl"
