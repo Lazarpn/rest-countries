@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --text-color: rgb(53, 53, 53);
+  --bkg-color-light: rgb(255, 255, 255);
+  --bkg-color-dark: rgba(245, 245, 245, 255);
+}
+body.dark-theme {
+  --text-color: rgb(235, 235, 235);
+  --bkg-color-light: rgba(43, 55, 67, 255);
+  --bkg-color-dark: rgba(33, 46, 55, 255);
+}
+
+body {
+  background: var(--bkg-color-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: var(--text-color);
+}

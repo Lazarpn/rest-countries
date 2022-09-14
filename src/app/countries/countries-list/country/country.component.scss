@@ -1,10 +1,11 @@
 .country {
   display: grid;
-  background-color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   grid-template-rows: 50% 50%;
-  height: 400px;
+  height: 380px;
   overflow: hidden;
+  transition: transform 0.2s;
+  background-color: var(--bkg-color-light);
 
   &__img {
     width: 100%;
@@ -12,13 +13,21 @@
     object-fit: cover;
   }
   &__content {
-    padding: 0 0px 10px 20px;
-    cursor: default;
+    padding-left: 25px;
   }
 
   &__content p {
-    font-size: 16px;
+    font-size: 15px;
+    margin-top: 10px;
   }
+
   &__heading {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
+}
+
+.country:hover {
+  transform: scale(1.05);
 }

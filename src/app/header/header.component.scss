@@ -1,14 +1,17 @@
 .header {
   padding: 0 50px;
-  // background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  background-color: var(--bkg-color-light);
 
   &__button {
     all: unset;
     cursor: pointer;
+    background-color: var(--bkg-color-dark);
+    padding: 0 10px;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,6 +27,7 @@
 
   &__icon {
     width: 30px;
+    fill: var(--text-color);
 
     &--sun {
     }
