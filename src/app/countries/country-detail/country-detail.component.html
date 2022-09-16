@@ -16,8 +16,8 @@
         <p><strong>Region:</strong> {{ country.region }}</p>
         <p><strong>Sub Region:</strong> {{ country.subregion }}</p>
         <p><strong>Capital:</strong> {{ country.capital }}</p>
-        <p><strong>Currencies:</strong>{{ country.currencies }}</p>
-        <p><strong>Languages:</strong>{{ country.languages }}</p>
+        <p><strong>Currencies:</strong> {{ country.currencies | extract }}</p>
+        <p><strong>Languages:</strong> {{ country.languages | extract }}</p>
       </div>
       <div class="detail__border-countries" *ngIf="country.borders.length > 0">
         <p><strong>Border Countries:</strong></p>

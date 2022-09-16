@@ -14,6 +14,7 @@ const appRoutes: Routes = [
       { path: ':id/:country-name', component: CountryDetailComponent },
     ],
   },
+  { path: '**', redirectTo: '/countries' },
 ];
 
 @NgModule({

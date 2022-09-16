@@ -9,6 +9,7 @@ import { CountryDetailComponent } from './countries/country-detail/country-detai
 import { CountryComponent } from './countries/countries-list/country/country.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ValuesExtractPipe } from './values-extract.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     CountriesListComponent,
     CountryDetailComponent,
     CountryComponent,
+    ValuesExtractPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
