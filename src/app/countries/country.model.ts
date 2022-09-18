@@ -11,6 +11,7 @@ export class Country {
   public borders;
   public id: number;
   public shortName: string;
+  public continents: any;
 
   constructor(
     name: string,
@@ -23,6 +24,7 @@ export class Country {
     languages: any,
     borders: [],
     shortName: string,
+    continents: any,
     id?: number
   ) {
     this.name = name;
@@ -34,7 +36,8 @@ export class Country {
     this.currencies = currencies;
     this.languages = languages;
     this.borders = borders;
-    this.id = id;
     this.shortName = shortName;
+    this.continents = continents;
+    this.id = id;
   }
 }

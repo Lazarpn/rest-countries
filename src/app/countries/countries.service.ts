@@ -30,6 +30,7 @@ export class CountriesService {
               country.languages,
               country.borders,
               country.cca3,
+              country.continents,
               index
             );
           });
@@ -55,5 +56,28 @@ export class CountriesService {
   }
   getCountries() {
     return this.countries.slice();
+  }
+
+  filterSearchedCountries(name: string) {
+    return this.getCountries().filter((country) =>
+      country.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
+  filterByContinent(continent: string) {
+    if (continent === 'All') return this.getCountries();
+    else {
+      return this.getCountries().filter(
+        (country) => country.continents.at(0) === continent
+      );
+    }
+  }
+
+  filterByBoth(continent: string, name: string) {
+    return this.getCountries()
+      .filter((country) => country.continents.at(0) === continent)
+      .filter((country) =>
+        country.name.toLowerCase().includes(name.toLowerCase())
+      );
   }
 }

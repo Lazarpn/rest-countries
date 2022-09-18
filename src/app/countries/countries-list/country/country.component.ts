@@ -19,9 +19,9 @@ export class CountryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // onLoadDetail() {
-  //   this.router.navigate([this.country.id, this.country.name], {
-  //     relativeTo: this.route,
-  //   });
-  // }
+  onLoadDetail() {
+    this.router.navigate([this.country.id, this.country.name], {
+      relativeTo: this.route,
+    });
+  }
 }

@@ -1,14 +1,25 @@
 <main class="container">
-  <form class="form">
+  <form class="form" #form="ngForm">
     <div class="form__search">
       <svg class="form__icon">
         <use xlink:href="/assets/sprite.svg#icon-search"></use>
       </svg>
-      <input type="search" placeholder="Search for a country..." />
+      <input
+        type="search"
+        placeholder="Search for a country..."
+        [(ngModel)]="searchInput"
+        name="search"
+      />
     </div>
-    <select name="" id="" class="form__select">
+    <select
+      id="continent"
+      class="form__select"
+      [(ngModel)]="continentSort"
+      name="continent"
+    >
+      <option value="All">All</option>
       <option value="Africa">Africa</option>
-      <option value="America">America</option>
+      <!-- <option value="America">America</option> -->
       <option value="Asia">Asia</option>
       <option value="Europe">Europe</option>
       <option value="Oceania">Oceania</option>
@@ -16,7 +27,9 @@
   </form>
 
   <div class="list">
-    <p *ngIf="spinner">Countries are loading...</p>
+    <svg *ngIf="spinner" class="list__spinner">
+      <use xlink:href="/assets/sprite.svg#icon-spinner2"></use>
+    </svg>
     <app-country
       *ngFor="let countryEl of countries; let i = index"
       [country]="countryEl"

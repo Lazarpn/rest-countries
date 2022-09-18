@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   constructor() {}
+  mode: string = 'Dark';
 
   ngOnInit(): void {}
 
   toggleDarkTheme() {
     document.body.classList.toggle('dark-theme');
+    this.mode = this.mode === 'Dark' ? 'Light' : 'Dark';
   }
 }
