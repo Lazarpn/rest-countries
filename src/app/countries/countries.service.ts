@@ -18,7 +18,7 @@ export class CountriesService {
       .pipe(
         map((countries) => {
           return countries.map((country: any, index: number) => {
-            console.log(country);
+            // console.log(country);
             return new Country(
               country.name.official,
               country.population,

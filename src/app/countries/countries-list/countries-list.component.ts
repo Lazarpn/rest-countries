@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Country } from '../country.model';
 import { CountriesService } from '../countries.service';
+import { AppScrollService } from '../../app-scroll.service';
 
 @Component({
   selector: 'app-countries-list',
@@ -8,7 +9,10 @@ import { CountriesService } from '../countries.service';
   styleUrls: ['./countries-list.component.scss'],
 })
 export class CountriesListComponent implements OnInit, DoCheck {
-  constructor(private countriesService: CountriesService) {}
+  constructor(
+    private countriesService: CountriesService,
+    private appScrollService: AppScrollService
+  ) {}
   countries: Country[];
   spinner = true;
 

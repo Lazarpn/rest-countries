@@ -19,7 +19,7 @@
         <p><strong>Currencies:</strong> {{ country.currencies | extract }}</p>
         <p><strong>Languages:</strong> {{ country.languages | extract }}</p>
       </div>
-      <div class="detail__border-countries" *ngIf="country.borders.length > 0">
+      <div class="detail__border-countries" *ngIf="country.borders?.length > 0">
         <p><strong>Border Countries:</strong></p>
         <div class="borders">
           <button
