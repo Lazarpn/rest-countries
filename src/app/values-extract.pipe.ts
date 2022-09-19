@@ -9,9 +9,9 @@ export class ValuesExtractPipe implements PipeTransform {
 
     return Object.values(value).map((value: any) => {
       if (value.name) {
-        return value.name;
+        return ` ${value.name}`;
       } else {
-        return value;
+        return ` ${value}`;
       }
     });
   }

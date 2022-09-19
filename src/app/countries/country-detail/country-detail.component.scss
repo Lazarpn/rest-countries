@@ -27,7 +27,7 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     grid-column-gap: 150px;
     &__flag {
       width: 700px;

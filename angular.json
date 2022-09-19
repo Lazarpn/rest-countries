@@ -26,7 +26,6 @@
             "assets": [
               "src/favicon.ico",
               "src/icon-globe.ico",
-
               "src/assets",
               "src/assets/sprite.svg",
               "src/assets/svg/sun.svg"

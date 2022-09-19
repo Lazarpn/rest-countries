@@ -1,5 +1,8 @@
 import {
   AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
   OnDestroy,
@@ -17,7 +20,7 @@ import { AppScrollService } from '../../app-scroll.service';
   styleUrls: ['./countries-list.component.scss'],
 })
 export class CountriesListComponent
-  implements OnInit, DoCheck, OnDestroy, AfterContentChecked
+  implements OnInit, DoCheck, OnDestroy, AfterViewInit
 {
   constructor(
     private countriesService: CountriesService,
@@ -38,7 +41,8 @@ export class CountriesListComponent
       this.error = error;
     });
   }
-  ngAfterContentChecked(): void {
+
+  ngAfterViewInit(): void {
     this.viewportScroller.scrollToPosition(this.appScrollService.getPosition());
   }
 
