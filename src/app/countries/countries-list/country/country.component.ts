@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from '../../country.model';
-import { AppScrollService } from '../../../app-scroll.service';
 
 @Component({
   selector: 'app-country',
@@ -11,11 +10,7 @@ import { AppScrollService } from '../../../app-scroll.service';
 export class CountryComponent implements OnInit {
   @Input() country: Country;
   @Input() index: number;
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private appScrollService: AppScrollService
-  ) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
 

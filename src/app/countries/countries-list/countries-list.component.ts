@@ -1,20 +1,33 @@
-import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  Component,
+  DoCheck,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Country } from '../country.model';
 import { CountriesService } from '../countries.service';
 import { Subscription } from 'rxjs';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-countries-list',
   templateUrl: './countries-list.component.html',
   styleUrls: ['./countries-list.component.scss'],
 })
-export class CountriesListComponent implements OnInit, DoCheck, OnDestroy {
-  constructor(private countriesService: CountriesService) {}
+export class CountriesListComponent
+  implements OnInit, DoCheck, OnDestroy, AfterContentChecked
+{
+  constructor(
+    private countriesService: CountriesService,
+    private viewportScroller: ViewportScroller
+  ) {}
   countries: Country[];
   spinner = true;
   searchInput = '';
   continentSort = 'All';
   error = null;
+  position: [number, number] = [0, 0];
   private errorSub: Subscription;
 
   ngOnInit(): void {
@@ -22,6 +35,10 @@ export class CountriesListComponent implements OnInit, DoCheck, OnDestroy {
     this.errorSub = this.countriesService.error.subscribe((error) => {
       this.error = error;
     });
+  }
+  ngAfterContentChecked(): void {
+    this.viewportScroller.scrollToPosition(this.position);
+    console.log(this.position);
   }
 
   ngDoCheck(): void {

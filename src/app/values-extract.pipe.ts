@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ValuesExtractPipe implements PipeTransform {
   transform(value: any, ...args: any[]) {
-    console.log(Object.values(value));
+    // console.log(Object.values(value));
 
     return Object.values(value).map((value: any) => {
       if (value.name) {
