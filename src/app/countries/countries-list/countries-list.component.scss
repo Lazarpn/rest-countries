@@ -12,7 +12,7 @@
   display: grid;
   // grid-template-rows: repeat();
   grid-template-columns: repeat(auto-fit, 300px);
-  // grid-gap: 70px;
+  grid-gap: 70px;
   min-height: 100vh;
 
   &__spinner {
