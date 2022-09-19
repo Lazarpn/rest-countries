@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CountriesComponent } from './countries/countries.component';
 import { CountryDetailComponent } from './countries/country-detail/country-detail.component';
 import { CountriesListComponent } from './countries/countries-list/countries-list.component';
+import { GuardService } from './guard.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/countries', pathMatch: 'full' },
@@ -11,7 +12,11 @@ const appRoutes: Routes = [
     component: CountriesComponent,
     children: [
       { path: '', component: CountriesListComponent },
-      { path: ':id/:country-name', component: CountryDetailComponent },
+      {
+        path: ':id/:country-name',
+        canActivate: [GuardService],
+        component: CountryDetailComponent,
+      },
     ],
   },
   { path: '**', redirectTo: '/countries' },

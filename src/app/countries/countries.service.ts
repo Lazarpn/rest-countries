@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Country } from './country.model';
-import { Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
   countries: Country[] = [];
   spinner = true;
-  // countriesChanged = new Subject<Country[]>();
-
+  error = new Subject<string>();
   constructor(private http: HttpClient) {}
 
   fetchCountries() {
@@ -41,10 +40,9 @@ export class CountriesService {
           this.countries = responseCountries;
           this.spinner = false;
         },
-        (error) => {}
-        // () => {
-        //   this.countriesChanged.next(this.countries);
-        // }
+        (error) => {
+          this.error.next(error.message);
+        }
       );
   }
 

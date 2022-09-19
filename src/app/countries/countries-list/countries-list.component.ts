@@ -1,28 +1,27 @@
-import { Component, DoCheck, OnInit, ViewChild } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { Country } from '../country.model';
 import { CountriesService } from '../countries.service';
-import { AppScrollService } from '../../app-scroll.service';
-import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-countries-list',
   templateUrl: './countries-list.component.html',
   styleUrls: ['./countries-list.component.scss'],
 })
-export class CountriesListComponent implements OnInit, DoCheck {
-  constructor(
-    private countriesService: CountriesService,
-    private appScrollService: AppScrollService
-  ) {}
+export class CountriesListComponent implements OnInit, DoCheck, OnDestroy {
+  constructor(private countriesService: CountriesService) {}
   countries: Country[];
   spinner = true;
   searchInput = '';
   continentSort = 'All';
-
-  @ViewChild('form', { static: true }) searchForm: NgForm;
+  error = null;
+  private errorSub: Subscription;
 
   ngOnInit(): void {
     this.countriesService.fetchCountries();
+    this.errorSub = this.countriesService.error.subscribe((error) => {
+      this.error = error;
+    });
   }
 
   ngDoCheck(): void {
@@ -48,7 +47,8 @@ export class CountriesListComponent implements OnInit, DoCheck {
       );
     }
   }
-}
-function Import() {
-  throw new Error('Function not implemented.');
+
+  ngOnDestroy(): void {
+    this.errorSub.unsubscribe();
+  }
 }

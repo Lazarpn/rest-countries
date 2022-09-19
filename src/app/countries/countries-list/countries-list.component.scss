@@ -15,6 +15,18 @@
   grid-gap: 70px;
   min-height: 100vh;
 
+  &__error {
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--bkg-color-light);
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &__spinner {
     position: absolute;
     top: 35%;

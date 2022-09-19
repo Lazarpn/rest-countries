@@ -27,9 +27,15 @@
   </form>
 
   <div class="list">
+    <div class="list__error" *ngIf="error">
+      <h1>An Error Occured!</h1>
+      <p>{{ error }}</p>
+    </div>
+
     <svg *ngIf="spinner" class="list__spinner">
       <use xlink:href="/assets/sprite.svg#icon-spinner2"></use>
     </svg>
+
     <app-country
       *ngFor="let countryEl of countries; let i = index"
       [country]="countryEl"
