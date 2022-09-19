@@ -9,6 +9,7 @@ import { Country } from '../country.model';
 import { CountriesService } from '../countries.service';
 import { Subscription } from 'rxjs';
 import { ViewportScroller } from '@angular/common';
+import { AppScrollService } from '../../app-scroll.service';
 
 @Component({
   selector: 'app-countries-list',
@@ -20,7 +21,8 @@ export class CountriesListComponent
 {
   constructor(
     private countriesService: CountriesService,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    private appScrollService: AppScrollService
   ) {}
   countries: Country[];
   spinner = true;
@@ -37,8 +39,7 @@ export class CountriesListComponent
     });
   }
   ngAfterContentChecked(): void {
-    this.viewportScroller.scrollToPosition(this.position);
-    console.log(this.position);
+    this.viewportScroller.scrollToPosition(this.appScrollService.getPosition());
   }
 
   ngDoCheck(): void {
