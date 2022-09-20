@@ -14,7 +14,9 @@
         <p><strong>Native Name:</strong> {{ country.name }}</p>
         <p><strong>Population:</strong> {{ country.population | number }}</p>
         <p><strong>Region:</strong> {{ country.region }}</p>
-        <p><strong>Sub Region:</strong> {{ country.subregion }}</p>
+        <p class="detail__content__subregion">
+          <strong>Sub Region:</strong> {{ country.subregion }}
+        </p>
         <p><strong>Capital:</strong> {{ country.capital }}</p>
         <p><strong>Currencies:</strong> {{ country.currencies | extract }}</p>
         <p><strong>Languages:</strong> {{ country.languages | extract }}</p>

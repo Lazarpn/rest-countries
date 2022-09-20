@@ -1,3 +1,5 @@
+@import "/src/app/shared/mixins.scss";
+
 @keyframes rotate {
   0% {
     transform: rotate(0);
@@ -14,6 +16,27 @@
   grid-template-columns: repeat(auto-fit, 300px);
   grid-gap: 70px;
   min-height: 100vh;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(auto-fit, 150px);
+
+    grid-gap: 30px;
+  }
+
+  @include respond(tab-land) {
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-gap: 50px;
+  }
+
+  @include respond(big-desktop) {
+    grid-template-columns: repeat(auto-fit, 424px);
+    grid-gap: 80px;
+  }
 
   &__error {
     border-radius: 5px;
@@ -43,11 +66,27 @@
   flex-direction: column;
   padding: 50px;
   position: relative;
+
+  @include respond(phone) {
+    padding: 35px;
+  }
+
+  @include respond(tab-port) {
+    padding: 35px;
+  }
 }
 .form {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
 
   & > * {
     background-color: var(--bkg-color-light);
@@ -60,6 +99,18 @@
     width: 500px;
     height: 50px;
     border-radius: 5px;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    @include respond(big-desktop) {
+      width: 700px;
+      height: 65px;
+    }
   }
 
   &__search input {
@@ -68,10 +119,18 @@
     height: 100%;
     color: var(--text-color);
     position: relative;
+
+    @include respond(big-desktop) {
+      font-size: 20px;
+    }
   }
 
   &__search input::-webkit-input-placeholder {
     color: var(--text-color);
+
+    @include respond(big-desktop) {
+      font-size: 20px;
+    }
   }
 
   &__search input::-webkit-search-cancel-button {
@@ -99,12 +158,26 @@
   }
   &__select {
     border: none;
-    width: 100%;
-    appearance: none;
-    border: none;
     outline: none;
-    width: 150px;
+    width: 250px;
     border-radius: 5px;
     padding: 10px;
+    color: var(--text-color);
+
+    @include respond(big-desktop) {
+      font-size: 20px;
+    }
+
+    @include respond(phone) {
+      width: 200px;
+      margin-top: 30px;
+      height: 50px;
+    }
+
+    @include respond(tab-port) {
+      width: 200px;
+      margin-top: 30px;
+      height: 50px;
+    }
   }
 }

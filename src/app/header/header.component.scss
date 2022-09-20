@@ -1,3 +1,5 @@
+@import "/src/app/shared/mixins.scss";
+
 .header {
   padding: 0 50px;
   display: flex;
@@ -5,6 +7,14 @@
   justify-content: space-between;
   height: 70px;
   background-color: var(--bkg-color-light);
+
+  @include respond(phone) {
+    padding: 15px;
+  }
+
+  @include respond(big-desktop) {
+    height: 100px;
+  }
 
   &__button {
     all: unset;
@@ -18,16 +28,40 @@
     width: 120px;
     height: 40px;
     border-radius: 20px;
+
+    @include respond(phone) {
+      width: 110px;
+    }
+
+    @include respond(big-desktop) {
+      padding: 0 15px;
+      width: 150px;
+      height: 50px;
+      font-size: 20px;
+    }
   }
 
   &__heading {
     font-size: 28px;
     font-weight: 600;
+
+    @include respond(phone) {
+      font-size: 23px;
+    }
+
+    @include respond(big-desktop) {
+      font-size: 35px;
+    }
   }
 
   &__icon {
     width: 30px;
     height: 30px;
     fill: var(--text-color);
+
+    @include respond(big-desktop) {
+      width: 35px;
+      height: 35px;
+    }
   }
 }

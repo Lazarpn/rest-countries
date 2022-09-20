@@ -1,3 +1,5 @@
+@import "/src/app/shared/mixins.scss";
+
 .country {
   display: grid;
   border-radius: 10px;
@@ -7,6 +9,14 @@
   transition: transform 0.2s;
   background-color: var(--bkg-color-light);
 
+  @include respond(big-desktop) {
+    height: 500px;
+  }
+
+  @include respond(phone) {
+    height: 500px;
+  }
+
   &__img {
     width: 100%;
     height: 100%;
@@ -14,17 +24,29 @@
   }
   &__content {
     padding-left: 25px;
+
+    @include respond(phone) {
+      padding-left: 40px;
+    }
   }
 
   &__content p {
     font-size: 15px;
     margin-top: 10px;
+
+    @include respond(big-desktop) {
+      font-size: 20px;
+    }
   }
 
   &__heading {
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 20px;
+
+    @include respond(big-desktop) {
+      font-size: 25px;
+    }
   }
 }
 

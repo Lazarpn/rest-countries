@@ -1,8 +1,13 @@
+@import "/src/app/shared/mixins.scss";
 .container {
   padding: 50px 70px 80px 70px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+
+  @include respond(phone) {
+    padding: 25px;
+  }
 
   &__button {
     all: unset;
@@ -19,6 +24,12 @@
     height: 30px;
     margin-bottom: 60px;
     transition: transform 0.2s;
+
+    @include respond(big-desktop) {
+      width: 120px;
+      height: 35px;
+      font-size: 18px;
+    }
   }
 
   &__button:hover {
@@ -29,8 +40,40 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 150px;
+
+    @include respond(tab-land) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include respond(tab-port) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include respond(phone) {
+      display: flex;
+      flex-direction: column;
+    }
+
     &__flag {
       width: 700px;
+
+      @include respond(phone) {
+        width: 100%;
+      }
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+
+      @include respond(tab-land) {
+        width: 100%;
+      }
+
+      @include respond(big-desktop) {
+        width: 1000px;
+      }
     }
   }
 }
@@ -40,28 +83,69 @@
   flex-direction: column;
   &__heading {
     margin-top: 25px;
+
+    @include respond(phone) {
+      margin-top: 35px;
+    }
+
+    @include respond(big-desktop) {
+      font-size: 35px;
+    }
   }
 
   &__content {
     display: grid;
     grid-template-columns: repeat(auto-fit, 290px);
     margin-top: 25px;
+
+    &__subregion {
+      @include respond(phone) {
+        margin-bottom: 50px;
+      }
+    }
+
+    @include respond(phone) {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include respond(big-desktop) {
+      margin-top: 30px;
+    }
   }
 
   &__content p {
     margin-top: 10px;
+
+    @include respond(big-desktop) {
+      margin-top: 15px;
+      font-size: 20px;
+    }
   }
 
   &__border-countries {
     margin-top: 50px;
     display: flex;
-
     align-items: center;
+
+    @include respond(phone) {
+      margin-top: 20px;
+    }
+
+    @include respond(big-desktop) {
+      font-size: 20px;
+    }
   }
 }
 
 .borders {
   margin-left: 20px;
+
+  @include respond(phone) {
+    margin-left: 10px;
+  }
+
   &__button {
     all: unset;
     cursor: pointer;
@@ -74,6 +158,15 @@
     border-radius: 3px;
     margin-left: 5px;
     transition: transform 0.2s;
+
+    @include respond(phone) {
+      width: 70px;
+      height: 20px;
+    }
+
+    @include respond(big-desktop) {
+      margin-left: 10px;
+    }
   }
 
   &__button:hover {

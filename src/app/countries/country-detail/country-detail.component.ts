@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Country } from '../country.model';
 import { CountriesService } from '../countries.service';
-import { AppScrollService } from '../../app-scroll.service';
 
 @Component({
   selector: 'app-country-detail',
@@ -14,8 +13,7 @@ export class CountryDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private countriesService: CountriesService,
-    private appScrollService: AppScrollService
+    private countriesService: CountriesService
   ) {}
 
   ngOnInit(): void {

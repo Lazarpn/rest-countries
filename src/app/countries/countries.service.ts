@@ -33,7 +33,6 @@ export class CountriesService {
               },
               index: number
             ) => {
-              console.log(country);
               return new Country(
                 country.name.official,
                 country.population,
