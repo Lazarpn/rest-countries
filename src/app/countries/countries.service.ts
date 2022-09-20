@@ -12,27 +12,44 @@ export class CountriesService {
   constructor(private http: HttpClient) {}
 
   fetchCountries() {
-    return this.http
+    this.http
       .get<[]>('https://restcountries.com/v3.1/all')
       .pipe(
-        map((countries) => {
-          return countries.map((country: any, index: number) => {
-            // console.log(country);
-            return new Country(
-              country.name.official,
-              country.population,
-              country.region,
-              country.subregion,
-              country.capital,
-              country.flags.svg,
-              country.currencies,
-              country.languages,
-              country.borders,
-              country.cca3,
-              country.continents,
-              index
-            );
-          });
+        map((countries: []) => {
+          return countries.map(
+            (
+              country: {
+                name: { official: string };
+                population: number;
+                region: string;
+                subregion: string;
+                capital: string[];
+                flags: { svg: string };
+                currencies: { [key: string]: { name: string } };
+                languages: { [key: string]: string };
+                borders: string[];
+                cca3: string;
+                continents: string[];
+              },
+              index: number
+            ) => {
+              console.log(country);
+              return new Country(
+                country.name.official,
+                country.population,
+                country.region,
+                country.subregion,
+                country.capital,
+                country.flags.svg,
+                country.currencies,
+                country.languages,
+                country.borders,
+                country.cca3,
+                country.continents,
+                index
+              );
+            }
+          );
         })
       )
       .subscribe(
@@ -46,13 +63,13 @@ export class CountriesService {
       );
   }
 
-  getCountryByIndex(index: number) {
+  getCountryByIndex(index: number): Country {
     return this.countries[index];
   }
-  getCountryByBorder(border: string) {
+  getCountryByBorder(border: string): Country {
     return this.countries.find((country) => country.shortName === border);
   }
-  getCountries() {
+  getCountries(): Country[] {
     return this.countries.slice();
   }
 
@@ -62,7 +79,7 @@ export class CountriesService {
     );
   }
 
-  filterByContinent(continent: string) {
+  filterByContinent(continent: string): Country[] {
     if (continent === 'All') return this.getCountries();
     else {
       return this.getCountries().filter(
@@ -71,7 +88,7 @@ export class CountriesService {
     }
   }
 
-  filterByBoth(continent: string, name: string) {
+  filterByBoth(continent: string, name: string): Country[] {
     return this.getCountries()
       .filter((country) => country.continents.at(0) === continent)
       .filter((country) =>

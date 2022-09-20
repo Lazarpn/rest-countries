@@ -1,7 +1,4 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
   AfterViewInit,
   Component,
   DoCheck,
@@ -32,7 +29,6 @@ export class CountriesListComponent
   searchInput = '';
   continentSort = 'All';
   error = null;
-  position: [number, number] = [0, 0];
   private errorSub: Subscription;
 
   ngOnInit(): void {

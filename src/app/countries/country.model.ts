@@ -3,28 +3,27 @@ export class Country {
   public population: number;
   public region: string;
   public subregion: string;
-
-  public capital: string;
+  public capital: string[];
   public imagePath: string;
-  public currencies: {};
-  public languages: any;
-  public borders;
-  public id: number;
+  public currencies: { [key: string]: { name: string } };
+  public languages: { [key: string]: string };
+  public borders: string[];
   public shortName: string;
-  public continents: any;
+  public continents: string[];
+  public id: number;
 
   constructor(
     name: string,
     population: number,
     region: string,
     subregion: string,
-    capital: string,
+    capital: string[],
     imagePath: string,
-    currencies: {},
-    languages: any,
-    borders: [],
+    currencies: { [key: string]: { name: string } },
+    languages: { [key: string]: string },
+    borders: string[],
     shortName: string,
-    continents: any,
+    continents: string[],
     id?: number
   ) {
     this.name = name;
