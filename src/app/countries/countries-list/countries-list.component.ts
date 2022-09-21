@@ -32,7 +32,6 @@ export class CountriesListComponent
   private errorSub: Subscription;
 
   ngOnInit(): void {
-    this.countriesService.fetchCountries();
     this.errorSub = this.countriesService.error.subscribe((error) => {
       this.error = error;
     });
