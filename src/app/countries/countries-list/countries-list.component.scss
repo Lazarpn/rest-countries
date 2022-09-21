@@ -22,17 +22,6 @@
     grid-gap: 40px;
   }
 
-  @include respond(tab-port) {
-    grid-template-columns: repeat(auto-fit, 150px);
-
-    grid-gap: 30px;
-  }
-
-  @include respond(tab-land) {
-    grid-template-columns: repeat(auto-fit, 270px);
-    grid-gap: 50px;
-  }
-
   @include respond(big-desktop) {
     grid-template-columns: repeat(auto-fit, 424px);
     grid-gap: 80px;

@@ -5,14 +5,15 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CountriesService } from './countries/countries.service';
 
 @Injectable({ providedIn: 'root' })
 export class GuardService implements CanActivate {
   constructor(
     private router: Router,
-    private countriesService: CountriesService
+    private countriesService: CountriesService,
+    private route: ActivatedRoute
   ) {}
 
   canActivate(
@@ -21,7 +22,7 @@ export class GuardService implements CanActivate {
   ): Observable<boolean> | Promise<boolean> | boolean {
     return new Promise((resolve, reject) => {
       if (this.countriesService.spinner) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { relativeTo: this.route });
       } else {
         resolve(true);
       }
