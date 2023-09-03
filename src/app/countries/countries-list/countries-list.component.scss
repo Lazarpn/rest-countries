@@ -15,6 +15,7 @@
   // grid-template-rows: repeat();
   grid-template-columns: repeat(auto-fit, 300px);
   grid-gap: 70px;
+  justify-content: center;
   min-height: 100vh;
 
   @include respond(phone) {
